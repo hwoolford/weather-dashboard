@@ -1,7 +1,7 @@
-var apiKey = "1cf183538d8a0988ab3207c9e8585519";
+const apiKey = "1cf183538d8a0988ab3207c9e8585519";
 var city;
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
-var geocodeURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey;
+const queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+const geocodeURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey;
 
 
 // Now that you have created your query URL, you only need to call the Fetch API to pass the query URL in as a parameter, as shown in the following example:
