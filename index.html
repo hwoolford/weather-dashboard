@@ -20,17 +20,18 @@
     </header>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2 search-panel">
-          <div class="city-search">
+        <div class="col-3 search-panel">
+          <div class="city-search mb-3 mt-5">
             <h2>Search for a City:</h2>
-            <input class="p-2 mb-3"
+            <input
+              class="p-2 mb-3"
               type="text"
               id="search-box"
               name="search-box"
               placeholder="Houston"
             />
             <div class="button-container">
-              <button id="search-button">Search</button>
+              <button id="search-button" class="btn btn-primary">Search</button>
             </div>
             <hr />
             <div class="search-history">
@@ -38,14 +39,14 @@
             </div>
           </div>
         </div>
-        <div class="col-10 forecast-panel">
-          <div class="current-weather">
-            <div class="d-flex justify-content-between">
+        <div class="col-9 forecast-panel">
+          <div class="current-weather mx-5 my-5">
+            <div class="d-flex justify-content-start align-items-center">
               <div class="current-info">
-                <h2 class="city-name">City Name</h2>
-                <p class="current-conditions">Temperature:</p>
-                <p class="current-conditions">Wind:</p>
-                <p class="current-conditions">Humidity:</p>
+                <h2 class="city-name">City Name (Date)</h2>
+                <p class="current-conditions">Temperature: </p>
+                <p class="current-conditions">Wind: </p>
+                <p class="current-conditions">Humidity: </p>
               </div>
               <div class="weather-icon">
                 <img
@@ -57,7 +58,8 @@
           </div>
           <h3>5-Day Forecast</h3>
           <div
-            class="future-forecast row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 gx-4 justify-content-between">
+            class="future-forecast row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 gx-4 justify-content-between"
+          >
             <div class="col mb-3 future-card">
               <div class="card border-0 bg-primary text-white">
                 <div class="card-body p-3">
@@ -66,69 +68,68 @@
                     src="https://openweathermap.org/img/wn/10d@2x.png"
                     alt="Weather Icon"
                   />
-                  <p class="future-conditions">Temp:</p>
-                  <p class="future-conditions">Wind:</p>
-                  <p class="future-conditions">Humidity:</p>
+                  <p class="future-conditions">Temp: </p>
+                  <p class="future-conditions">Wind: </p>
+                  <p class="future-conditions">Humidity: </p>
                 </div>
               </div>
             </div>
             <div class="col mb-3 future-card">
-                <div class="card border-0 bg-secondary text-white">
-                  <div class="card-body p-3">
-                    <h4 class="date">Date</h4>
-                    <img
-                      src="https://openweathermap.org/img/wn/10d@2x.png"
-                      alt="Weather Icon"
-                    />
-                    <p class="future-conditions">Temp:</p>
-                    <p class="future-conditions">Wind:</p>
-                    <p class="future-conditions">Humidity:</p>
-                  </div>
+              <div class="card border-0 bg-secondary text-white">
+                <div class="card-body p-3">
+                  <h4 class="date">Date</h4>
+                  <img
+                    src="https://openweathermap.org/img/wn/10d@2x.png"
+                    alt="Weather Icon"
+                  />
+                  <p class="future-conditions">Temp: </p>
+                  <p class="future-conditions">Wind: </p>
+                  <p class="future-conditions">Humidity: </p>
                 </div>
               </div>
-              <div class="col mb-3 future-card">
-                <div class="card border-0 bg-success text-white">
-                  <div class="card-body p-3">
-                    <h4 class="date">Date</h4>
-                    <img
-                      src="https://openweathermap.org/img/wn/10d@2x.png"
-                      alt="Weather Icon"
-                    />
-                    <p class="future-conditions">Temp:</p>
-                    <p class="future-conditions">Wind:</p>
-                    <p class="future-conditions">Humidity:</p>
-                  </div>
+            </div>
+            <div class="col mb-3 future-card">
+              <div class="card border-0 bg-success text-white">
+                <div class="card-body p-3">
+                  <h4 class="date">Date</h4>
+                  <img
+                    src="https://openweathermap.org/img/wn/10d@2x.png"
+                    alt="Weather Icon"
+                  />
+                  <p class="future-conditions">Temp: </p>
+                  <p class="future-conditions">Wind: </p>
+                  <p class="future-conditions">Humidity: </p>
                 </div>
               </div>
-              <div class="col mb-3 future-card">
-                <div class="card border-0 bg-info text-white">
-                  <div class="card-body p-3">
-                    <h4 class="date">Date</h4>
-                    <img
-                      src="https://openweathermap.org/img/wn/10d@2x.png"
-                      alt="Weather Icon"
-                    />
-                    <p class="future-conditions">Temp:</p>
-                    <p class="future-conditions">Wind:</p>
-                    <p class="future-conditions">Humidity:</p>
-                  </div>
+            </div>
+            <div class="col mb-3 future-card">
+              <div class="card border-0 bg-info text-white">
+                <div class="card-body p-3">
+                  <h4 class="date">Date</h4>
+                  <img
+                    src="https://openweathermap.org/img/wn/10d@2x.png"
+                    alt="Weather Icon"
+                  />
+                  <p class="future-conditions">Temp: </p>
+                  <p class="future-conditions">Wind: </p>
+                  <p class="future-conditions">Humidity: </p>
                 </div>
               </div>
-              <div class="col mb-3 future-card">
-                <div class="card border-0 bg-dark text-white">
-                  <div class="card-body p-3">
-                    <h4 class="date">Date</h4>
-                    <img
-                      src="https://openweathermap.org/img/wn/10d@2x.png"
-                      alt="Weather Icon"
-                    />
-                    <p class="future-conditions">Temp:</p>
-                    <p class="future-conditions">Wind:</p>
-                    <p class="future-conditions">Humidity:</p>
-                  </div>
+            </div>
+            <div class="col mb-3 future-card">
+              <div class="card border-0 bg-dark text-white">
+                <div class="card-body p-3">
+                  <h4 class="date">Date</h4>
+                  <img
+                    src="https://openweathermap.org/img/wn/10d@2x.png"
+                    alt="Weather Icon"
+                  />
+                  <p class="future-conditions">Temp: </p>
+                  <p class="future-conditions">Wind: </p>
+                  <p class="future-conditions">Humidity: </p>
                 </div>
               </div>
-            
+            </div>
           </div>
         </div>
       </div>
@@ -140,5 +141,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/javascript/script.js"></script>
+
   </body>
 </html>

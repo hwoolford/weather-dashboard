@@ -5,14 +5,20 @@
 }
 
 .current-weather {
-    width: 100%;
+    width: 80%;
     height: 200px;
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 5px;
     padding: 10px;
 }
 
 #search-box, #search-button, hr {
     width: 100%;
+}
+
+#search-box {
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
 .title {
