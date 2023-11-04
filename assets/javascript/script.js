@@ -4,6 +4,7 @@ const userCity = document.getElementById("search-box");
 const userInput = userCity.value.trim();
 const searchBtn = document.getElementById("search-button");
 const searchHistory = document.getElementsByClassName("search-history");
+const tableBody = document.getElementById("history");
 
 // const fetchURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
 const fetchURLCity = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
@@ -40,15 +41,16 @@ $(document).ready(function () {
             console.log(city);
             console.log(latitude);
             console.log(longitude);
-            // getCity();
             let storedCity = JSON.parse(localStorage.getItem("history"));
-            const searchHistory = document.getElementsByClassName("search-history");
-            let searchDiv = document.createElement("div");
-            let searchUl = document.createElement("ul");
-            let searchLi = document.createElement("li");
-            searchLi.innerHTML = storedCity;
-            searchDiv.append(searchUl);
-            searchUl.append(searchLi);
+              let createTableRow = document.createElement("tr");
+              let tableData = document.createElement("td");
+              let info = document.createElement("a");
+              info.textContent = storedCity;
+              tableData.appendChild(info);
+              createTableRow.appendChild(tableData);
+              tableBody.appendChild(createTableRow);
+            
+            
           }
         });
     }
