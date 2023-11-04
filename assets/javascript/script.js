@@ -1,9 +1,23 @@
 const apiKey = "1cf183538d8a0988ab3207c9e8585519";
 var city;
-const queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+const userCity = document.getElementById("search-box");
+const searchBtn = document.getElementById("search-button");
+const fetchURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+const fetchURLCity = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 const geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+const fetchCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
 
 
-// Now that you have created your query URL, you only need to call the Fetch API to pass the query URL in as a parameter, as shown in the following example:
-// fetch(queryURL)
-// Remember that the query URL won't work automatically as it's written. You'll need to adjust your application to accept user input, to store in the city variable that you've created.
+// add event listener for searchBtn
+// search btn will trigger city weather and will set search term in local storage
+// Get lat and lon from geocodingAPI
+// I will have to get the searched city from local storage and append it to the <ul> class "history" and will need to create new <li> items for each city searched. This will be done with a for loop
+// I will need to set an event listener for clicking on the <li> which will trigger city weather
+// http://api.openweathermap.org/geo/1.0/direct?q=Houston&appid=1cf183538d8a0988ab3207c9e8585519
+
+// http://api.openweathermap.org/data/2.5/forecast?lat=29.7589382&lon=-95.3676974&appid=1cf183538d8a0988ab3207c9e8585519&units=imperial
+
+// http://api.openweathermap.org/data/2.5/weather?lat=29.7589382&lon=-95.3676974&appid=1cf183538d8a0988ab3207c9e8585519&units=imperial
+
+
+
