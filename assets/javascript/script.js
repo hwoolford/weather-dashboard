@@ -1,14 +1,12 @@
-const apiKey = "1cf183538d8a0988ab3207c9e8585519";
-let city;
 const userCity = document.getElementById("search-box");
 const userInput = userCity.value.trim();
 const searchBtn = document.getElementById("search-button");
 const searchHistory = document.getElementsByClassName("search-history");
 const tableBody = document.getElementById("history");
+const apiKey = "1cf183538d8a0988ab3207c9e8585519";
 
 // const fetchURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
-const fetchURLCity = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
-const geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+
 // const fetchCurrent = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
 
 // add event listener for searchBtn
@@ -16,12 +14,6 @@ const geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid
 // Get lat and lon from geocodingAPI
 // I will have to get the searched city from local storage and append it to the <ul> class "history" and will need to create new <li> items for each city searched. This will be done with a for loop
 // I will need to set an event listener for clicking on the <li> which will trigger city weather
-const weather =
-  "http://api.openweathermap.org/geo/1.0/direct?q=Houston&appid=1cf183538d8a0988ab3207c9e8585519";
-
-// http://api.openweathermap.org/data/2.5/forecast?lat=29.7589382&lon=-95.3676974&appid=1cf183538d8a0988ab3207c9e8585519&units=imperial
-
-// http://api.openweathermap.org/data/2.5/weather?lat=29.7589382&lon=-95.3676974&appid=1cf183538d8a0988ab3207c9e8585519&units=imperial
 
 $(document).ready(function () {
   $("#search-button").on("click", function () {
@@ -29,52 +21,34 @@ $(document).ready(function () {
     localStorage.setItem("history", JSON.stringify(userInput));
 
     function getCoordinates() {
-      fetch(weather)
+      let city = userInput
+      const geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+      fetch(geocodeURL)
         .then(function (response) {
           return response.json();
         })
         .then(function (data) {
           for (let i = 0; i < data.length; i++) {
-            city = data[i].name;
+            cityName = data[i].name;
             latitude = data[i].lat;
             longitude = data[i].lon;
             console.log(city);
             console.log(latitude);
             console.log(longitude);
+            
             let storedCity = JSON.parse(localStorage.getItem("history"));
-              let createTableRow = document.createElement("tr");
-              let tableData = document.createElement("td");
-              let info = document.createElement("a");
-              info.textContent = storedCity;
-              tableData.appendChild(info);
-              createTableRow.appendChild(tableData);
-              tableBody.appendChild(createTableRow);
-            
-            
+            let createTableRow = document.createElement("tr");
+            let tableData = document.createElement("td");
+            let info = document.createElement("a");
+
+            info.textContent = storedCity;
+            tableData.appendChild(info);
+            createTableRow.appendChild(tableData);
+            tableBody.appendChild(createTableRow);
           }
         });
     }
 
-    // function getCity() {
-    //   // let storedCity = JSON.parse(localStorage.getItem("history"));
-    //   // let historyEl = document.getElementsByClassName("search-history");
-
-    //   userCity.innerHTML = "";
-    //   for (let i = 0; i < storedCity.length; i++) {
-    //     let searchUl = document.createElement("ul");
-    //     let searchLi = document.createElement("li");
-    //     historyEl.innerHTML = searchUl;
-    //     searchUl.innerHTML = searchLi;
-    //   }
-    // }
-
     getCoordinates();
   });
-
-  // function getCity () {
-  //     let storedCity = JSON.parse(localStorage.getItem("history"))
-  //     let historyEl = document.querySelectorAll(".history-list");
-  // }
 });
-
-// searchBtn.addEventListener("click", getCoordinates())
