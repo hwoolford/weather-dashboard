@@ -70,12 +70,10 @@ $(document).ready(function () {
                   let date = data.list[i].dt_txt
                   console.log(date)
 
-                  let divElement = document.createElement("div")
-                  
-                  nameCity.textContent = cityName + " (" + date + ")"
-                  console.log(nameCity)
-                  currentInfo.innerHTML = nameCity
-                  // divElement.append(currentInfo)
+                            
+                  nameCity[0].textContent = cityName + " (" + date.split(" ")[0] + ")"
+                  console.log(nameCity[0].textContent)
+                  currentInfo.textContent = nameCity[0].textContent
                 }
               })
               .catch(function(error) {
