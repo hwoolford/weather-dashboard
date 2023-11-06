@@ -43,11 +43,51 @@ $(document).ready(function () {
             tableData.appendChild(info);
             createTableRow.appendChild(tableData);
             tableBody.appendChild(createTableRow);
-
             function getForecast(latitude, longitude, city) {
               // console.log(city);
               // console.log(latitude);
               // console.log(longitude);
+
+              const fetchWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+
+              fetch(fetchWeatherURL)
+                .then(function (response) {
+                  return response.json();
+                })
+                .then(function (data) {
+                  console.log(data);
+                  let cName = data.name;
+                  console.log(cName);
+                  let cTemp = data.main.temp;
+                  console.log(cTemp);
+                  let cWind = data.wind.speed;
+                  console.log(cWind);
+                  let cHumidity = data.main.humidity;
+                  console.log(cHumidity);
+                  let dtUTC = data.dt;
+
+                  let cDate = new Date(dtUTC * 1000);
+                  let today = cDate.toLocaleDateString("en-US");
+                  console.log(today);
+
+                  let cIcon = data.weather[0].icon;
+                  let iconURL =
+                    "https://openweathermap.org/img/wn/" + cIcon + "@4x.png";
+                  currentIcon.src = iconURL;
+
+                  currentTemp.textContent = "Temperature: " + cTemp + "°F";
+                  currentInfo.textContent = currentTemp.textContent;
+
+                  currentWind.textContent = "Wind: " + cWind + " MPH";
+                  currentInfo.textContent = currentWind.textContent;
+
+                  currentHumidity.textContent = "Humidity: " + cHumidity + "%";
+                  currentInfo.textContent = currentHumidity.textContent;
+
+                  nameCity[0].textContent = cName + " (" + today + ")";
+                  console.log(nameCity[0].textContent);
+                  currentInfo.textContent = nameCity[0].textContent;
+                });
 
               const fetchForecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
 
@@ -56,7 +96,7 @@ $(document).ready(function () {
                   return response.json();
                 })
                 .then(function (data) {
-                  console.log(data);
+                  // console.log(data);
                   for (let i = 0; i < data.list.length; i++) {
                     let cityName = data.city.name;
                     // console.log(cityName)
@@ -66,39 +106,56 @@ $(document).ready(function () {
                     // console.log(humidity)
                     let wind = data.list[i].wind.speed;
                     // console.log(wind)
-                    let icon = data.list[i].weather.icon;
+                    let icon = data.list[i].weather[0].icon;
                     // console.log(icon)
-                    let date = data.list[i].dt_txt;
+                    let dateTime = data.list[i].dt_txt;
+                    let date = data.list[i].dt_txt.split(" ")[0];
+                    let time = data.list[i].dt_txt.split(" ")[1];
+                    const forecastArray = data.list;
+                    let dt = data.list[i].dt;
+                    // console.log(dt)
+
+                    //  console.log(dateTime);
+
                     // console.log(date);
 
+                    // console.log(time);
+
                     // Getting current results for the current weather data
-                    let currentDate = data.list[0].dt_txt;
-                    let currentTemperature = data.list[0].main.temp;
-                    let currentWindSpeed = data.list[0].wind.speed;
-                    let currentHumid = data.list[0].main.humidity;
-                    let iconCode = data.list[0].weather[0].icon;
-                    console.log(iconCode)
+                    // let currentDate = data.list[0].dt_txt;
+                    // let currentTemperature = data.list[0].main.temp;
+                    // let currentWindSpeed = data.list[0].wind.speed;
+                    // let currentHumid = data.list[0].main.humidity;
+                    // let iconCode = data.list[0].weather[0].icon;
+                    // console.log(iconCode)
 
-                    nameCity[0].textContent =
-                      cityName + " (" + currentDate.split(" ")[0] + ")";
-                    console.log(nameCity[0].textContent);
-                    currentInfo.textContent = nameCity[0].textContent;
+                    // nameCity[0].textContent =
+                    //   cityName + " (" + currentDate.split(" ")[0] + ")";
+                    // // console.log(nameCity[0].textContent);
+                    // currentInfo.textContent = nameCity[0].textContent;
 
-                    currentTemp.textContent =
-                      "Temperature: " + currentTemperature + "°F";
-                    console.log(currentTemp.textContent);
-                    currentInfo.textContent = currentTemp.textContent;
+                    // currentTemp.textContent =
+                    //   "Temperature: " + currentTemperature + "°F";
+                    // // console.log(currentTemp.textContent);
+                    // currentInfo.textContent = currentTemp.textContent;
 
-                    currentWind.textContent =
-                      "Wind: " + currentWindSpeed + " MPH";
-                    currentInfo.textContent = currentWind.textContent;
+                    // currentWind.textContent =
+                    //   "Wind: " + currentWindSpeed + " MPH";
+                    // currentInfo.textContent = currentWind.textContent;
 
-                    currentHumidity.textContent =
-                      "Humidity: " + currentHumid + "%";
-                    
-                    let iconURL = "https://openweathermap.org/img/wn/" + iconCode + "@4x.png";                
-                    currentIcon.src = iconURL;
+                    // currentHumidity.textContent =
+                    //   "Humidity: " + currentHumid + "%";
 
+                    // let iconURL =
+                    //   "https://openweathermap.org/img/wn/" +
+                    //   iconCode +
+                    //   "@4x.png";
+                    // currentIcon.src = iconURL;
+
+                    // let dateTime = data.list[0].dt_txt;
+                    // console.log(dateTime)
+                    // let temp = data.list[0].main.temp;
+                    // console.log(temp)
                   }
                 })
                 .catch(function (error) {
