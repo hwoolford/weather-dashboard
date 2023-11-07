@@ -147,6 +147,11 @@ $(document).ready(function () {
                   //   dayHumid.textContent = "Humidity: " + humids + "%";
                   // }
 
+                  let dt = data.list[2].dt;
+                    let fiveDate = new Date(dt * 1000);
+                    let nDate = fiveDate.toLocaleDateString("en-US");
+                    console.log(nDate);
+
                   // Day 1 Weather
                   for (i = 0; i < fiveDays.length; i++) {
                     if (fiveDays.length > 5) {
@@ -162,6 +167,10 @@ $(document).ready(function () {
                         iconOne +
                         "@2x.png";
                       icon1.src = iconURL;
+                      let dt = data.list[1].dt;
+                    let fiveDate = new Date(dt * 1000);
+                    let nDate = fiveDate.toLocaleDateString("en-US");
+                    $("#day1date").text(nDate);
                     } else {
                       let tempOne = fiveDays[0].main.temp;
                       $("#day1temp").text("Temp: " + tempOne + "°F");
@@ -175,6 +184,10 @@ $(document).ready(function () {
                         iconOne +
                         "@2x.png";
                       icon1.src = iconURL;
+                      let dt = data.list[0].dt;
+                    let fiveDate = new Date(dt * 1000);
+                    let nDate = fiveDate.toLocaleDateString("en-US");
+                    $("#day1date").text(nDate);
                     }
                   }
 
@@ -339,7 +352,7 @@ $(document).ready(function () {
 //                     let icon = data.list[i].weather[0].icon;
 //                     // console.log(icon)
 //                     let dateTime = data.list[i].dt_txt;
-//                     let date = data.list[i].dt_txt.split(" ")[0];
+//                     let date = data.list[i].dt_txt.split(" ")[0]
 //                     let time = data.list[i].dt_txt.split(" ")[1];
 //                     const forecastArray = data.list;
 //                     let dt = data.list[i].dt;
