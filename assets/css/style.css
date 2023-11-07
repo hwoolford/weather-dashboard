@@ -1,27 +1,29 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .current-weather {
-    width: 95%;
-    height: 200px;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 10px;
+  width: 95%;
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
 }
 
-#search-box, #search-button, hr {
-    width: 100%;
+#search-box,
+#search-button,
+hr {
+  width: 100%;
 }
 
 #search-box {
-    border: 1px solid black;
-    border-radius: 3px;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .title {
-background: #3499C7;
-background: linear-gradient(90deg, #3499C7, #0d6efd);
+  background: #3499c7;
+  background: linear-gradient(90deg, #3499c7, #0d6efd);
 }
