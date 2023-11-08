@@ -20,7 +20,6 @@ let city;
 let latitude;
 let longitude;
 
-
 $(document).ready(function () {
   $("#search-button").on("click", function () {
     const userInput = userCity.value.trim();
@@ -30,6 +29,7 @@ $(document).ready(function () {
       let city = userInput;
       const geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
 
+      // Fetching coordinates from city name using Geocoder API
       fetch(geocodeURL)
         .then(function (response) {
           return response.json();
@@ -40,38 +40,8 @@ $(document).ready(function () {
             let latitude = data[i].lat;
             let longitude = data[i].lon;
 
-            let storedCity = JSON.parse(localStorage.getItem("history"));
-            let createTableRow = document.createElement("tr");
-            let tableData = document.createElement("td");
-            let cityHistory = document.createElement("a");
-            $("#search-box").val("");
-            cityHistory.textContent = storedCity;
-            tableData.appendChild(cityHistory);
-            createTableRow.appendChild(tableData);
-            tableBody.appendChild(createTableRow);
-
-            
-            // let searchResults = [];
-            // function addSearchResult() {
-            //   searchResults.push(storedCity)
-            // }
-            // addSearchResult()
-
-            
-            // console.log(searchResults)
-
-            cityHistory.addEventListener("click", function() {
-              getCoordinates(userInput)
-                       
-              
-            })
-
-
+            // Getting current forecast
             function getForecast(latitude, longitude, city) {
-              // console.log(city);
-              // console.log(latitude);
-              // console.log(longitude);
-
               const fetchWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
 
               fetch(fetchWeatherURL)
@@ -79,23 +49,21 @@ $(document).ready(function () {
                   return response.json();
                 })
                 .then(function (data) {
-                  // console.log(data);
                   let cName = data.name;
-                  // console.log(cName);
+
                   let cTemp = data.main.temp;
-                  // console.log(cTemp);
+
                   let cWind = data.wind.speed;
-                  // console.log(cWind);
+
                   let cHumidity = data.main.humidity;
-                  // console.log(cHumidity);
+
                   let dtUTC = data.dt;
 
                   let cDate = new Date(dtUTC * 1000);
                   let today = cDate.toLocaleDateString("en-US");
-                  // console.log(today);
 
                   let cIcon = data.weather[0].icon;
-                  // console.log(cIcon);
+
                   let iconURL =
                     "https://openweathermap.org/img/wn/" + cIcon + "@4x.png";
                   currentIcon.src = iconURL;
@@ -110,10 +78,11 @@ $(document).ready(function () {
                   currentInfo.textContent = currentHumidity.textContent;
 
                   nameCity[0].textContent = cName + " (" + today + ")";
-                  // console.log(nameCity[0].textContent);
+
                   currentInfo.textContent = nameCity[0].textContent;
                 });
 
+              //Getting 5 day forecast
               const fetchForecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
 
               fetch(fetchForecastURL)
@@ -135,15 +104,6 @@ $(document).ready(function () {
                     return false;
                   });
 
-                  
-
-                
-
-                  let dt = data.list[2].dt;
-                    let fiveDate = new Date(dt * 1000);
-                    let nDate = fiveDate.toLocaleDateString("en-US");
-                    // console.log(nDate);
-
                   // Day 1 Weather
                   for (i = 0; i < fiveDays.length; i++) {
                     if (fiveDays.length > 5) {
@@ -159,9 +119,8 @@ $(document).ready(function () {
                         iconOne +
                         "@2x.png";
                       icon1.src = iconURL;
-                      let date = fiveDays[1].dt_txt.split(" ")[0]
+                      let date = fiveDays[1].dt_txt.split(" ")[0];
                       $("#day1date").text(date);
-                    // $("#day1date").text(nDate);
                     } else {
                       let tempOne = fiveDays[0].main.temp;
                       $("#day1temp").text("Temp: " + tempOne + "°F");
@@ -175,7 +134,7 @@ $(document).ready(function () {
                         iconOne +
                         "@2x.png";
                       icon1.src = iconURL;
-                      let date = fiveDays[0].dt_txt.split(" ")[0]
+                      let date = fiveDays[0].dt_txt.split(" ")[0];
                       $("#day1date").text(date);
                     }
                   }
@@ -195,9 +154,8 @@ $(document).ready(function () {
                         iconTwo +
                         "@2x.png";
                       icon2.src = iconURL;
-                      let date = fiveDays[2].dt_txt.split(" ")[0]
+                      let date = fiveDays[2].dt_txt.split(" ")[0];
                       $("#day2date").text(date);
-                    
                     } else {
                       let tempTwo = fiveDays[1].main.temp;
                       $("#day2temp").text("Temp: " + tempTwo + "°F");
@@ -211,9 +169,8 @@ $(document).ready(function () {
                         iconTwo +
                         "@2x.png";
                       icon2.src = iconURL;
-                      let date = fiveDays[1].dt_txt.split(" ")[0]
+                      let date = fiveDays[1].dt_txt.split(" ")[0];
                       $("#day2date").text(date);
-                    
                     }
                   }
 
@@ -232,7 +189,7 @@ $(document).ready(function () {
                         iconThree +
                         "@2x.png";
                       icon3.src = iconURL;
-                      let date = fiveDays[3].dt_txt.split(" ")[0]
+                      let date = fiveDays[3].dt_txt.split(" ")[0];
                       $("#day3date").text(date);
                     } else {
                       let tempThree = fiveDays[2].main.temp;
@@ -247,7 +204,7 @@ $(document).ready(function () {
                         iconThree +
                         "@2x.png";
                       icon3.src = iconURL;
-                      let date = fiveDays[2].dt_txt.split(" ")[0]
+                      let date = fiveDays[2].dt_txt.split(" ")[0];
                       $("#day3date").text(date);
                     }
                   }
@@ -267,7 +224,7 @@ $(document).ready(function () {
                         iconFour +
                         "@2x.png";
                       icon4.src = iconURL;
-                      let date = fiveDays[4].dt_txt.split(" ")[0]
+                      let date = fiveDays[4].dt_txt.split(" ")[0];
                       $("#day4date").text(date);
                     } else {
                       let tempFour = fiveDays[3].main.temp;
@@ -282,7 +239,7 @@ $(document).ready(function () {
                         iconFour +
                         "@2x.png";
                       icon4.src = iconURL;
-                      let date = fiveDays[3].dt_txt.split(" ")[0]
+                      let date = fiveDays[3].dt_txt.split(" ")[0];
                       $("#day4date").text(date);
                     }
                   }
@@ -302,7 +259,7 @@ $(document).ready(function () {
                         iconFive +
                         "@2x.png";
                       icon5.src = iconURL;
-                      let date = fiveDays[5].dt_txt.split(" ")[0]
+                      let date = fiveDays[5].dt_txt.split(" ")[0];
                       $("#day5date").text(date);
                     } else {
                       let tempFive = fiveDays[4].main.temp;
@@ -317,13 +274,11 @@ $(document).ready(function () {
                         iconFive +
                         "@2x.png";
                       icon5.src = iconURL;
-                      let date = fiveDays[4].dt_txt.split(" ")[0]
+                      let date = fiveDays[4].dt_txt.split(" ")[0];
                       $("#day5date").text(date);
                     }
                   }
-            
-                  
-               })
+                })
 
                 .catch(function (error) {
                   console.log(error);
@@ -336,7 +291,22 @@ $(document).ready(function () {
     }
 
     getCoordinates();
+
+    //Showing search results on page
+    let showOnPage = function () {
+      let storedCity = JSON.parse(localStorage.getItem("history"));
+      let createTableRow = document.createElement("tr");
+      let tableData = document.createElement("td");
+      let cityHistory = document.createElement("a");
+      $("#search-box").val("");
+      cityHistory.textContent = storedCity;
+      tableData.appendChild(cityHistory);
+      createTableRow.appendChild(tableData);
+      tableBody.appendChild(createTableRow);
+      cityHistory.addEventListener("click", function () {
+        getCoordinates(userInput);
+      });
+    };
+    showOnPage();
   });
 });
-
-
