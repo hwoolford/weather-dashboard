@@ -27,3 +27,7 @@ hr {
   background: #3499c7;
   background: linear-gradient(90deg, #3499c7, #0d6efd);
 }
+
+#input {
+  cursor: pointer;
+}

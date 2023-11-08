@@ -90,7 +90,6 @@ $(document).ready(function () {
                   return response.json();
                 })
                 .then(function (data) {
-                  console.log(data);
 
                   const forecastArray = data.list;
                   const uniqueDays = new Set();
@@ -298,11 +297,13 @@ $(document).ready(function () {
       let createTableRow = document.createElement("tr");
       let tableData = document.createElement("td");
       let cityHistory = document.createElement("a");
+      cityHistory.setAttribute("id", "input")
       $("#search-box").val("");
       cityHistory.textContent = storedCity;
       tableData.appendChild(cityHistory);
       createTableRow.appendChild(tableData);
       tableBody.appendChild(createTableRow);
+
       cityHistory.addEventListener("click", function () {
         getCoordinates(userInput);
       });
