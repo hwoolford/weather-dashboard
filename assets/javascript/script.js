@@ -150,7 +150,7 @@ $(document).ready(function () {
                   let dt = data.list[2].dt;
                     let fiveDate = new Date(dt * 1000);
                     let nDate = fiveDate.toLocaleDateString("en-US");
-                    console.log(nDate);
+                    // console.log(nDate);
 
                   // Day 1 Weather
                   for (i = 0; i < fiveDays.length; i++) {
@@ -167,10 +167,9 @@ $(document).ready(function () {
                         iconOne +
                         "@2x.png";
                       icon1.src = iconURL;
-                      let dt = data.list[1].dt;
-                    let fiveDate = new Date(dt * 1000);
-                    let nDate = fiveDate.toLocaleDateString("en-US");
-                    $("#day1date").text(nDate);
+                      let date = fiveDays[1].dt_txt.split(" ")[0]
+                      $("#day1date").text(date);
+                    // $("#day1date").text(nDate);
                     } else {
                       let tempOne = fiveDays[0].main.temp;
                       $("#day1temp").text("Temp: " + tempOne + "°F");
@@ -184,10 +183,8 @@ $(document).ready(function () {
                         iconOne +
                         "@2x.png";
                       icon1.src = iconURL;
-                      let dt = data.list[0].dt;
-                    let fiveDate = new Date(dt * 1000);
-                    let nDate = fiveDate.toLocaleDateString("en-US");
-                    $("#day1date").text(nDate);
+                      let date = fiveDays[0].dt_txt.split(" ")[0]
+                      $("#day1date").text(date);
                     }
                   }
 
@@ -206,6 +203,9 @@ $(document).ready(function () {
                         iconTwo +
                         "@2x.png";
                       icon2.src = iconURL;
+                      let date = fiveDays[2].dt_txt.split(" ")[0]
+                      $("#day2date").text(date);
+                    
                     } else {
                       let tempTwo = fiveDays[1].main.temp;
                       $("#day2temp").text("Temp: " + tempTwo + "°F");
@@ -219,6 +219,9 @@ $(document).ready(function () {
                         iconTwo +
                         "@2x.png";
                       icon2.src = iconURL;
+                      let date = fiveDays[1].dt_txt.split(" ")[0]
+                      $("#day2date").text(date);
+                    
                     }
                   }
 
@@ -237,6 +240,8 @@ $(document).ready(function () {
                         iconThree +
                         "@2x.png";
                       icon3.src = iconURL;
+                      let date = fiveDays[3].dt_txt.split(" ")[0]
+                      $("#day3date").text(date);
                     } else {
                       let tempThree = fiveDays[2].main.temp;
                       $("#day3temp").text("Temp: " + tempThree + "°F");
@@ -250,6 +255,8 @@ $(document).ready(function () {
                         iconThree +
                         "@2x.png";
                       icon3.src = iconURL;
+                      let date = fiveDays[2].dt_txt.split(" ")[0]
+                      $("#day3date").text(date);
                     }
                   }
 
@@ -268,6 +275,8 @@ $(document).ready(function () {
                         iconFour +
                         "@2x.png";
                       icon4.src = iconURL;
+                      let date = fiveDays[4].dt_txt.split(" ")[0]
+                      $("#day4date").text(date);
                     } else {
                       let tempFour = fiveDays[3].main.temp;
                       $("#day4temp").text("Temp: " + tempFour + "°F");
@@ -281,6 +290,8 @@ $(document).ready(function () {
                         iconFour +
                         "@2x.png";
                       icon4.src = iconURL;
+                      let date = fiveDays[3].dt_txt.split(" ")[0]
+                      $("#day4date").text(date);
                     }
                   }
 
@@ -299,6 +310,8 @@ $(document).ready(function () {
                         iconFive +
                         "@2x.png";
                       icon5.src = iconURL;
+                      let date = fiveDays[5].dt_txt.split(" ")[0]
+                      $("#day5date").text(date);
                     } else {
                       let tempFive = fiveDays[4].main.temp;
                       $("#day5temp").text("Temp: " + tempFive + "°F");
@@ -312,6 +325,8 @@ $(document).ready(function () {
                         iconFive +
                         "@2x.png";
                       icon5.src = iconURL;
+                      let date = fiveDays[4].dt_txt.split(" ")[0]
+                      $("#day5date").text(date);
                     }
                   }
             
