@@ -20,6 +20,7 @@ let city;
 let latitude;
 let longitude;
 
+
 $(document).ready(function () {
   $("#search-button").on("click", function () {
     const userInput = userCity.value.trim();
@@ -42,12 +43,29 @@ $(document).ready(function () {
             let storedCity = JSON.parse(localStorage.getItem("history"));
             let createTableRow = document.createElement("tr");
             let tableData = document.createElement("td");
-            let info = document.createElement("a");
+            let cityHistory = document.createElement("a");
             $("#search-box").val("");
-            info.textContent = storedCity;
-            tableData.appendChild(info);
+            cityHistory.textContent = storedCity;
+            tableData.appendChild(cityHistory);
             createTableRow.appendChild(tableData);
             tableBody.appendChild(createTableRow);
+
+            
+            // let searchResults = [];
+            // function addSearchResult() {
+            //   searchResults.push(storedCity)
+            // }
+            // addSearchResult()
+
+            
+            // console.log(searchResults)
+
+            cityHistory.addEventListener("click", function() {
+              getCoordinates(userInput)
+                       
+              
+            })
+
 
             function getForecast(latitude, longitude, city) {
               // console.log(city);
@@ -117,35 +135,9 @@ $(document).ready(function () {
                     return false;
                   });
 
-                  console.log(fiveDays);
+                  
 
-                  // for (i = 0; i < fiveDays.length; i++) {
-
-                  //   let temps = fiveDays[i + 1].main.temp;
-                  //   console.log(temps)
-                  //   let dayTemp = document.getElementById(
-                  //     "day" + (i + 1) + "temp"
-                  //   )
-                  //   dayTemp.textContent = "Temp: " + temps + "°F";
-                  // }
-
-                  //   for (i = 0; i < fiveDays.length; i++) {
-                  //   let winds = fiveDays[i + 1].wind.speed;
-                  //   console.log(winds)
-                  //   let dayWind = document.getElementById(
-                  //     "day" + (i + 1) + "wind"
-                  //   )
-                  //   dayWind.textContent = "Wind: " + winds + " MPH";
-                  // }
-
-                  //   for (i = 0; i < fiveDays.length; i++) {
-                  //   let humids = fiveDays[i + 1].main.humidity;
-                  //   console.log(humids)
-                  //   let dayHumid = document.getElementById(
-                  //     "day" + (i + 1) + "humidity"
-                  //   )
-                  //   dayHumid.textContent = "Humidity: " + humids + "%";
-                  // }
+                
 
                   let dt = data.list[2].dt;
                     let fiveDate = new Date(dt * 1000);
@@ -331,15 +323,7 @@ $(document).ready(function () {
                   }
             
                   
-
-                  // let icons = fiveDays[i + 1].weather[0].icon
-                  // console.log(icons)
-                  // document.getElementById("day" + (i + 1) + "icon").src =  "https://openweathermap.org/img/wn/" + icons + "@2x.png"
-
-                  // document.getElementById("day" + (i+1) + "date").textContent = nDate;
-
-                  //  console.log(dateTime);
-                })
+               })
 
                 .catch(function (error) {
                   console.log(error);
@@ -355,24 +339,4 @@ $(document).ready(function () {
   });
 });
 
-// let cityName = data.city.name;
-//                     // console.log(cityName)
-//                     let temp = data.list[i].main.temp;
-//                     // console.log(temp)
 
-//                     let humidity = data.list[i].main.humidity;
-//                     // console.log(humidity)
-//                     let wind = data.list[i].wind.speed;
-//                     // console.log(wind)
-//                     let icon = data.list[i].weather[0].icon;
-//                     // console.log(icon)
-//                     let dateTime = data.list[i].dt_txt;
-//                     let date = data.list[i].dt_txt.split(" ")[0]
-//                     let time = data.list[i].dt_txt.split(" ")[1];
-//                     const forecastArray = data.list;
-//                     let dt = data.list[i].dt;
-//                     let fiveDate = new Date(dt * 1000);
-//                     let nDate = fiveDate.toLocaleDateString("en-US");
-//                     // console.log(nDate);
-
-//                     let longDate = new Date(dt * 1000).toLocaleDateString("en-US");
