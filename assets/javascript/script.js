@@ -90,7 +90,6 @@ $(document).ready(function () {
                   return response.json();
                 })
                 .then(function (data) {
-
                   const forecastArray = data.list;
                   const uniqueDays = new Set();
 
@@ -102,6 +101,7 @@ $(document).ready(function () {
                     }
                     return false;
                   });
+                  console.log(fiveDays);
 
                   // Day 1 Weather
                   for (i = 0; i < fiveDays.length; i++) {
@@ -119,6 +119,7 @@ $(document).ready(function () {
                         "@2x.png";
                       icon1.src = iconURL;
                       let date = fiveDays[1].dt_txt.split(" ")[0];
+
                       $("#day1date").text(date);
                     } else {
                       let tempOne = fiveDays[0].main.temp;
@@ -295,9 +296,10 @@ $(document).ready(function () {
     let showOnPage = function () {
       let storedCity = JSON.parse(localStorage.getItem("history"));
       let createTableRow = document.createElement("tr");
+      createTableRow.setAttribute("id", "tableRow")
       let tableData = document.createElement("td");
       let cityHistory = document.createElement("a");
-      cityHistory.setAttribute("id", "input")
+      cityHistory.setAttribute("id", "input");
       $("#search-box").val("");
       cityHistory.textContent = storedCity;
       tableData.appendChild(cityHistory);

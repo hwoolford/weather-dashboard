@@ -2,14 +2,22 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
+}
+
+.search-panel, .forecast-panel {
+  background-color: black;
+  color: white;
 }
 
 .current-weather {
-  width: 95%;
-  height: 200px;
-  border: 2px solid black;
-  border-radius: 5px;
+  width: 90%;
+  height: auto;
+  border: 3px solid white;
+  border-radius: 25px;
   padding: 10px;
+  margin: auto;
+  color: white;
 }
 
 #search-box,
@@ -19,15 +27,63 @@ hr {
 }
 
 #search-box {
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 3px;
 }
 
 .title {
   background: #3499c7;
-  background: linear-gradient(90deg, #3499c7, #0d6efd);
+  background: linear-gradient(90deg, #0dcaf0, #0d6efd, #0dcaf0);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 3.5em;
 }
 
 #input {
   cursor: pointer;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5em;
 }
+
+h2, h3, .city-name, #five-day {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  color: white;
+}
+
+.city-name {
+  font-size: 2.75em;
+}
+
+.future-conditions {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
+.current-conditions {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 2em;
+  
+}
+
+.row {
+  width: 100%;
+  justify-content: center;
+  height: 100vh;
+}
+
+#history {
+  color: white;
+}
+
+.weather-card {
+  border: white 3px solid;
+}
+
+/*  bg-primary text-white */
+
+/* font-family: 'Anton', sans-serif;
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Oswald', sans-serif; */

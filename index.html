@@ -10,13 +10,19 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Oswald:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
     <header>
-      <h1 class="text-center py-3 text-white title">Weather Dashboard</h1>
+      <h1 class="text-center py-3 text-white title">WEATHER DASHBOARD</h1>
     </header>
     <div class="container-fluid">
       <div class="row">
@@ -43,8 +49,8 @@
           </div>
         </div>
         <div class="col-9 forecast-panel">
-          <div class="current-weather mx-5 my-5">
-            <div class="d-flex justify-content-start align-items-center">
+          <div class="current-weather bg-primary my-5">
+            <div class="d-flex justify-content-evenly align-items-center">
               <div class="current-info">
                 <h2 class="city-name py-2">Current Weather</h2>
                 <p id="current-temp" class="current-conditions">
@@ -60,14 +66,14 @@
               </div>
             </div>
           </div>
-          <h3>5-Day Forecast</h3>
+          <h2 id="five-day">5-Day Forecast</h2>
           <div
             class="future-forecast row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-5 gx-4 justify-content-between"
           >
             <div class="col mb-3 future-card">
-              <div class="card border-0 bg-primary text-white">
+              <div class="weather-card card bg-primary text-white">
                 <div class="card-body p-3">
-                  <h4 id="day1date" class="date">Date</h4>
+                  <h3 id="day1date" class="date">Date</h3>
                   <img id="day1icon" />
                   <p id="day1temp" class="future-conditions">Temp: &#8457;</p>
                   <p id="day1wind" class="future-conditions">Wind: MPH</p>
@@ -76,9 +82,9 @@
               </div>
             </div>
             <div class="col mb-3 future-card">
-              <div class="card border-0 bg-secondary text-white">
+              <div class="weather-card card bg-primary text-white">
                 <div class="card-body p-3">
-                  <h4 id="day2date" class="date">Date</h4>
+                  <h3 id="day2date" class="date">Date</h3>
                   <img id="day2icon" />
                   <p id="day2temp" class="future-conditions">Temp: &#8457;</p>
                   <p id="day2wind" class="future-conditions">Wind: MPH</p>
@@ -87,9 +93,9 @@
               </div>
             </div>
             <div class="col mb-3 future-card">
-              <div class="card border-0 bg-success text-white">
+              <div class="weather-card card bg-primary text-white">
                 <div class="card-body p-3">
-                  <h4 id="day3date" class="date">Date</h4>
+                  <h3 id="day3date" class="date">Date</h3>
                   <img id="day3icon" />
                   <p id="day3temp" class="future-conditions">Temp: &#8457;</p>
                   <p id="day3wind" class="future-conditions">Wind: MPH</p>
@@ -98,9 +104,9 @@
               </div>
             </div>
             <div class="col mb-3 future-card">
-              <div class="card border-0 bg-info text-white">
+              <div class="weather-card card bg-primary text-white">
                 <div class="card-body p-3">
-                  <h4 id="day4date" class="date">Date</h4>
+                  <h3 id="day4date" class="date">Date</h3>
                   <img id="day4icon" />
                   <p id="day4temp" class="future-conditions">Temp: &#8457;</p>
                   <p id="day4wind" class="future-conditions">Wind: MPH</p>
@@ -109,9 +115,9 @@
               </div>
             </div>
             <div class="col mb-3 future-card">
-              <div class="card border-0 bg-dark text-white">
+              <div class="weather-card card bg-primary text-white">
                 <div class="card-body p-3">
-                  <h4 id="day5date" class="date">Date</h4>
+                  <h3 id="day5date" class="date">Date</h3>
                   <img id="day5icon" />
                   <p id="day5temp" class="future-conditions">Temp: &#8457;</p>
                   <p id="day5wind" class="future-conditions">Wind: MPH</p>
