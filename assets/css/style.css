@@ -5,9 +5,14 @@
   
 }
 
-.search-panel, .forecast-panel {
+.background {
   background-color: black;
+}
+
+.search-panel, .forecast-panel {
   color: white;
+  background-color: black;
+  height: 100vh;
 }
 
 .current-weather {
@@ -81,9 +86,3 @@ h2, h3, .city-name, #five-day {
 .weather-card {
   border: white 3px solid;
 }
-
-/*  bg-primary text-white */
-
-/* font-family: 'Anton', sans-serif;
-font-family: 'Bebas Neue', sans-serif;
-font-family: 'Oswald', sans-serif; */
