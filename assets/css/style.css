@@ -123,6 +123,10 @@ h3,
     margin-right: auto;
     margin-left: 10px;
   }
+
+  .search-text {
+    font-size: 2.25em;
+  }
 }
 
 /* Media queries for phones */
