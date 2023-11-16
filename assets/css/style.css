@@ -8,6 +8,10 @@ body {
   background-color: black;
 }
 
+header {
+  width: 100%;
+}
+
 .search-panel,
 .forecast-panel {
   color: white;
@@ -85,4 +89,36 @@ h3,
 
 .weather-card {
   border: white 3px solid;
+}
+
+.background {
+  margin: auto 10px
+}
+
+@media screen and (max-width: 768px) {
+  #current-weather-icon {
+   max-height: auto;
+  }
+
+  .city-name {
+    font-size: 2em;
+  }
+
+  .current-conditions {
+    font-size: 1.5em;
+  }
+
+  .current-weather {
+    justify-content: center;
+  }
+
+  .forecast-panel {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .future-forecast {
+    margin-right: auto;
+    margin-left: 10px;
+  }
 }
