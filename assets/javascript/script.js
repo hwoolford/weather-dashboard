@@ -24,7 +24,7 @@ $(document).ready(function () {
   $("#search-button").on("click", function () {
     const userInput = userCity.value.trim();
     localStorage.setItem("history", JSON.stringify(userInput));
-
+    if (userInput && userInput !== "") {
     function getCoordinates() {
       let city = userInput;
       const geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
@@ -119,7 +119,6 @@ $(document).ready(function () {
                         "@2x.png";
                       icon1.src = iconURL;
                       let date = fiveDays[1].dt_txt.split(" ")[0];
-
                       $("#day1date").text(date);
                     } else {
                       let tempOne = fiveDays[0].main.temp;
@@ -282,6 +281,7 @@ $(document).ready(function () {
 
                 .catch(function (error) {
                   console.log(error);
+                  alert('Unable to connect. Please try again.');
                 });
             }
 
@@ -311,5 +311,9 @@ $(document).ready(function () {
       });
     };
     showOnPage();
+  } else {
+    alert("Please enter a city");
+  }
   });
+  
 });

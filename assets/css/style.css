@@ -5,14 +5,13 @@
   
 }
 
-.background {
+body {
   background-color: black;
 }
 
 .search-panel, .forecast-panel {
   color: white;
   background-color: black;
-  height: 100vh;
 }
 
 .current-weather {
@@ -76,7 +75,6 @@ h2, h3, .city-name, #five-day {
 .row {
   width: 100%;
   justify-content: center;
-  height: 100vh;
 }
 
 #history {
