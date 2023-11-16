@@ -2,14 +2,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  
 }
 
 body {
   background-color: black;
 }
 
-.search-panel, .forecast-panel {
+.search-panel,
+.forecast-panel {
   color: white;
   background-color: black;
 }
@@ -38,19 +38,22 @@ hr {
 .title {
   background: #3499c7;
   background: linear-gradient(90deg, #0dcaf0, #0d6efd, #0dcaf0);
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   font-weight: 600;
   font-size: 3.5em;
 }
 
 #input {
   cursor: pointer;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 2.5em;
 }
 
-h2, h3, .city-name, #five-day {
-  font-family: 'Oswald', sans-serif;
+h2,
+h3,
+.city-name,
+#five-day {
+  font-family: "Oswald", sans-serif;
   font-weight: 600;
   color: white;
 }
@@ -60,16 +63,15 @@ h2, h3, .city-name, #five-day {
 }
 
 .future-conditions {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   font-weight: 400;
   font-size: 1.5em;
 }
 
 .current-conditions {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   font-weight: 400;
   font-size: 2em;
-  
 }
 
 .row {

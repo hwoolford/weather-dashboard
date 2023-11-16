@@ -27,7 +27,7 @@ $(document).ready(function () {
     if (userInput && userInput !== "") {
     function getCoordinates() {
       let city = userInput;
-      const geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+      const geocodeURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
 
       // Fetching coordinates from city name using Geocoder API
       fetch(geocodeURL)
