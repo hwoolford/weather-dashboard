@@ -98,10 +98,6 @@ h3,
 
 /* Media queries for tablets */
 @media screen and (max-width: 768px) {
-  #current-weather-icon {
-   max-height: auto;
-  }
-
   .city-name {
     font-size: 2em;
   }
@@ -129,7 +125,14 @@ h3,
   }
 }
 
-/* Media queries for phones */
-@media screen and (max-width: 425px) {
+/* Media queries for smaller screens */
+@media screen and (max-width: 475px) {
+  #current-weather-icon {
+    max-width: 100%;
+    max-height: auto;
+   }
 
+   .title {
+    width: 100%;
+      }
 }
