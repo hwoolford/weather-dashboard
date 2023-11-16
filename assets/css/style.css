@@ -95,6 +95,7 @@ h3,
   margin: auto 10px
 }
 
+/* Media queries for tablets */
 @media screen and (max-width: 768px) {
   #current-weather-icon {
    max-height: auto;
@@ -121,4 +122,9 @@ h3,
     margin-right: auto;
     margin-left: 10px;
   }
+}
+
+/* Media queries for phones */
+@media screen and (max-width: 425px) {
+
 }
